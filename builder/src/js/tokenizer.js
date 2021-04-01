@@ -1,4 +1,4 @@
-import util from './util.js';
+import { util, brackets } from './util.js';
 /*
 - 제일 바깥의 괄호를 제외하고 쉼표(,)를 기준으로 토큰을 나눈다.
 - 단, 괄호([], {}, ())나 따옴표("", '')가 나올 경우, 하나의 토큰 단위로 묶는다.
@@ -6,10 +6,7 @@ import util from './util.js';
 - bracketstack은 왼쪽(열리는 괄호)일 경우, push를 하고, 오른쪽(닫히는)일 경우 pop을 한다.
 - bracketstack이 빈 상태가 되면, 완성된 buffer를 tokenizerstack에 push한다.
 */
-/* util로 뺄것인가 */
-const [SBRACKETS_LEFT, SBRACKETS_RIGHT] = ["(",")"];
-const [MBRACKETS_LEFT, MBRACKETS_RIGHT] = ["{","}"];
-const [BBRACKETS_LEFT, BBRACKETS_RIGHT] = ["[","]"];
+const { SBRACKETS_LEFT, SBRACKETS_RIGHT, MBRACKETS_LEFT, MBRACKETS_RIGHT, BBRACKETS_LEFT, BBRACKETS_RIGHT } = brackets;
 const [SQUOTES, DQUOTES] = ["'",'"'];
 const LEFTS = [SBRACKETS_LEFT, MBRACKETS_LEFT, BBRACKETS_LEFT];
 const RIGHTS = [SBRACKETS_RIGHT, MBRACKETS_RIGHT, BBRACKETS_RIGHT];
