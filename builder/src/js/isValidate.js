@@ -27,4 +27,5 @@ function bracketPairCheck(RightBracket, lastEl){
     RightBracket === BBRACKETS_RIGHT && lastEl !== BBRACKETS_LEFT ? isValid = false : "";
 }
 
+
 export default isValidate;

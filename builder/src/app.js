@@ -16,3 +16,4 @@ submitBtn.addEventListener("click", () => {
     result.lexer.innerHTML = lexicalTokenArr;
     result.parser.innerHTML = parsedData;
 })
+
