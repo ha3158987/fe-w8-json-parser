@@ -1,10 +1,5 @@
-import tokenizer from './js/tokenizer.js';
-import lexer from './js/lexer.js';
-import parser from './js/parser.js';
 import { util } from './js/util.js'
 import runJSONParser from './js/main.js';
-import { analyzer } from  './js/analyzer';
-import isValidate from './js/isValidate';
 
 const _ = util;
 const submitBtn = _.$(".submit");

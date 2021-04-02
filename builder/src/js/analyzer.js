@@ -15,17 +15,10 @@ const analyzer = (str) => {
     const parserResult = parser(lexer(tokenizer(str)), null, "   ");
 
     getDepth(parserResult, 0)
-    console.log("MAXDEPTH : ", MAXDEPTH)
-
     countStrType(parserResult)
-    console.log("countStrType : ", strTypeCount)
-
     countNumType(parserResult)
-    console.log("countNumType : ", numTypeCount)
-
     const template = createTemplate(MAXDEPTH, strTypeCount, numTypeCount);
     analysisResult.innerHTML = template;
-    ObjPrint(parserResult);
 }
 
 function getDepth(JSON, depth){
@@ -61,16 +54,6 @@ function countNumType(JSON){
         if(JSON.type === "number"){
             numTypeCount += 1;
         }
-    }
-}
-
-function ObjPrint(JSON){
-    if(JSON.child){
-        for(let obj in JSON.child){
-            ObjPrint(JSON.child[obj])
-        }
-    } else {
-        console.log(JSON)
     }
 }
 
