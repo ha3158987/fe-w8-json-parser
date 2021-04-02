@@ -7,13 +7,12 @@ const RIGHTS = [SBRACKETS_RIGHT, MBRACKETS_RIGHT, BBRACKETS_RIGHT];
 const QUOTES = [SQUOTES, DQUOTES]
 
 const tokenizer = (str) => {
-    let BRACKETS_SET = []
-    BRACKETS_SET.push(SBRACKETS_LEFT,SBRACKETS_RIGHT, MBRACKETS_LEFT, MBRACKETS_RIGHT, BBRACKETS_LEFT, BBRACKETS_RIGHT, SQUOTES, DQUOTES);
-
+    let BRACKETS_SET = [...LEFTS, ...RIGHTS, ...QUOTES];
     const splitedArr = util.strToLetter(str);
-    let buffer = '';
     const bracketStack = [];
     const tokenStack =[];
+    let buffer = '';
+
     for (let i = 1; i < splitedArr.length - 1; i++){
         const currEl = splitedArr[i];
         if (BRACKETS_SET.includes(currEl)) {
