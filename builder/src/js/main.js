@@ -16,6 +16,7 @@ const chgToStr = (obj) => JSON.stringify(obj, null, "   ");
 const processData = (str) => {
     analyzerBtn.addEventListener("click", () => analyzer(str));
     analyzerBtn.disabled = false;
+    analyzerBtn.classList.add("activate");
     dataObj["tokenArr"] = chgToStr(tokenizer(str));
     dataObj["lexicalTokenArr"] = chgToStr(_.pipe(tokenizer, lexer)(str));
     dataObj["parsedData"] = chgToStr(_.pipe(tokenizer, lexer, parser)(str));
@@ -24,6 +25,7 @@ const processData = (str) => {
 
 const showErrorMsg = () => {
     analyzerBtn.disabled = true;
+    analyzerBtn.classList.remove("activate");
     const keys = ["tokenArr", "lexicalTokenArr", "parsedData"];
     keys.forEach(key => dataObj[key] = "Invalid Input ❌");
     return dataObj;
